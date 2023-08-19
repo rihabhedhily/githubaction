@@ -16,5 +16,5 @@ jobs:
     - name: Build & Push Image
       run: |
         echo "${{ secrets.DOCKERPW }}" | docker login -u "ririfiras" --password-stdin
-        docker image build -t dab8106/pyflask:latest .
-        docker push dab8106/pyflask:latest
+        docker image build -t ririfiras/pyflask:latest .
+        docker push ririfiras/pyflask:latest
