@@ -1,14 +1,8 @@
-FROM python:2.7-alpine
-
-RUN mkdir /app
-WORKDIR /app
-
-COPY requirements.txt requirements.txt
-RUN pip install -r requirements.txt
-
-COPY . .
-
-LABEL maintainer="WebMagic Informatica <info@webmagicinformatica.com>" \
-      version="1.0"
-
-CMD flask run --host=0.0.0.0 --port=5000
+From python:3-alpine3.9
+WORKDIR /api
+copy requirements.txt ./
+RUN pip install --upgrade pip
+RUN python3 -m pip install -r requirements.txt
+copy . /api
+expose 3000 
+cmd ["python", "./app.py"]
