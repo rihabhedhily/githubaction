@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: pyflask
+  name: helloflaskgit
 spec:
   selector:
     matchLabels:
-      app: pyflask
+      app: helloflaskgit
   template:
     metadata:
       labels:
-        app: pyflask
+        app: helloflaskgit
     spec:
       containers:
-      - name: pyflask
-        image: ririfiras/pyflask:latest
+      - name: helloflaskgit
+        image: ririfiras/helloflaskgit:latest
         resources:
           limits:
             memory: "128Mi"
@@ -29,10 +29,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: pyflask
+  name: helloflaskgit
 spec:
   selector:
-    app: pyflask
+    app: helloflaskgit
   type: LoadBalancer
   ports:
   - port: 80
