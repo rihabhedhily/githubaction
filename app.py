@@ -1,15 +1,8 @@
-import os
-
 from flask import Flask
-from flask_redis import FlaskRedis
-
+from jinja2.utils import markupsafe 
 app = Flask(__name__)
-app.config['REDIS_URL'] = 'redis://redis:6379/0'
-
-redis = FlaskRedis(app)
-
-
-@app.route('/')
-def counter():
-    return '{0} {1}'.format(str(redis.incr('web2_counter')),
-                            os.getenv('WEB2_COUNTER_MSG', ''))
+@app.route("/")
+def run():
+    return "Hello, Flask!"
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=int("3000"))
